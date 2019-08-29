@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vue.js Sample</title>
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- vue js -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!--
+     v-if vs v-show
+        - Vue는 v-if 디렉티브와 비슷한 역할을 하는 v-show라는 디렉티브를 제공
+          v-if 디렉티브와 마찬가지로 조건 상태값에 따라 결과값으로 보이고 보이지 않고가 달라진다.
+        - 사용법 : v-show="조건상태"
+
+     v-if는 조건이 안맞을 경우 아예 렌더링이 되지 않는다.
+     v-show는 조건이 안맞을 경우 실제로 코드는 삽입되지만, display:none으로 처리된다.
+-->
+<div id="test" class="container"><br><br>
+    <h2 v-if="dog">강아지가 최고야</h2>
+    <h2 v-show="dog">귀여운 댕댕이</h2>
+    <button v-on:click="dog = !dog" class="btn btn-info">반대로~</button> <hr>
+    <template v-if="dog">
+        <p>강아지 너무 좋아</p>
+        <h4>강아지가 최고야</h4>
+        <img src="https://i.ytimg.com/vi/k-fz_w81DlI/hqdefault.jpg" style="width:300px;">
+    </template>
+</div> 
+
+</body> 
+
+<script>
+    new Vue({
+        el : "#test",
+        data : {
+            dog : false
+        }
+    })
+</script>
+</html>

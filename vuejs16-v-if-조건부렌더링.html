@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vue.js Sample</title>
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- vue js -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!--
+     조건부 렌더링 v-if
+        - 조건에 따라 다르게 렌더링을 할 수 있는 조건부 렌더링
+        - 사용법 : v-if="조건상태", v-else-if="조건상태", v-else
+-->
+<div id="test" class="container"><br><br>
+    <h2 v-if="ice">아아가 최고야!</h2>
+    <h2 v-else>뜨아가 최고지!</h2>
+    <button v-on:click="ice = !ice" class="btn btn-info">반대로~</button> <hr>
+    <template v-if="ice">
+        <p>여름엔 아메리카노</p>
+        <h4>역시 얼음이 최고야</h4>
+        <img src="data:image/jpeg;base64,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" alt="">
+    </template>
+    <template v-else>
+        <p>뜨아가 더 맛있어</p>
+        <h4>얼음은 몸에 안좋아~</h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-nFDBupdk1WHUV9WNmYPhctNUT8GEhcpqhKC140FzXXiPNhC" alt="">
+    </template>
+</div> 
+
+</body> 
+
+<script>
+    new Vue({
+        el : "#test",
+        data : {
+            ice : true
+        }
+    })
+</script>
+</html>
