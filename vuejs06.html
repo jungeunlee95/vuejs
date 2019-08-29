@@ -5,31 +5,27 @@
 </head>
 <body>
 <!--
-    [ v-once 디렉티브 ]
-    sayHello가 선언된 순간 title이 모두 안녕못해! 로 바뀌어버림..
-      -> 해결을 위해서 v-once 디렉티브 사용!
+    [ v-html 디렉티브 ]
+    HTML 코드 자체를 data 내에 선언해주고
+    해당 값을 HTML 코드의 형태로 출력해줘야한다면?
 
 -->
 <div id="app">
-    <h1 v-once>{{ title }}</h1>
-    <p>{{ sayHello() }}</p>
-    <hr>
+    <!--이렇게 하면 스트링으로 들어가게 됨-->
+    <p>{{ alinkToMedium }}</p>
 
-    <h1 v-once>{{ title }}</h1>
-    <p>{{ sayHello() }}</p>
-    <hr>
-
-    <h1 v-once>{{ title }}</h1>
-    <p>{{ sayHello() }}</p>
-
+    <!--v-html 사용 : p태그 안에 a태그 삽입-->
+    <p v-html="aLinkToMedium2"></p>
 </div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>
     new Vue({
         el: '#app',
         data: {
-            title : "하이~"
+            alinkToMedium : "<a href='http://www.naver.com'>네이버 바로가기</a> ",
+            aLinkToMedium2 : "<a href='http://www.naver.com'>네이버 바로가기</a>"
         },
         methods : {
             sayHello : function(){
