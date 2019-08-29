@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue.js Sample</title>
+</head>
+<body>
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- vue js -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+
+<!--
+    v-on디렉티브의 다양한 이벤트
+    : 다양한 이벤트 타입 확인하기
+        1. https://www.w3schools.com/jsref/obj_mouseevent.asp?source=post_page-----625bfc661c75----------------------
+        1-2. 이벤트 수식어 : https://kr.vuejs.org/v2/guide/events.html?source=post_page-----625bfc661c75----------------------#%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%88%98%EC%8B%9D%EC%96%B4
+        2. https://kr.vuejs.org/v2/guide/events.html#%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%88%98%EC%8B%9D%EC%96%B4
+
+
+-->
+<div id="app">
+    <h2>클릭</h2>
+    <p>{{ count }}</p>
+    <button v-on:click="addCount(2)">2를 더해줘</button><hr>
+
+    <h2>더블 클릭</h2>
+    <button v-on:dblclick="doubleClick()">더블클릭</button><hr>
+
+    <h2>mousemove</h2>
+    <p>{{ count2 }}</p>
+    <div v-on:mousemove="addCount()" style="background-color: yellow">마우스를 올려봐!</div><hr>
+
+    <h2>Event Modifier</h2>
+    <p>{{ count3 }}</p>
+    <div v-on:mousemove="addCount3()">
+        마우스를 올려봐!
+        <span v-on:mousemove.stop>그만!</span>
+        여기서부터 다시 시작!
+    </div><hr>
+
+    <h2>Keyboard Event</h2>
+        <input v-on:keyup.enter="login" placeholder="아이디를 입력하세요.">
+
+    </div>
+</div>
+</body>
+
+<script>
+    var example1 = new Vue({
+        el: "#app",
+        data: {
+            count: 0,
+            count2:0,
+            count3:0
+        },
+        methods:{
+            addCount(num) {
+                this.count = this.count + num
+            },
+            doubleClick() {
+                console.log('더블클릭')
+            },
+            addCount() {
+                this.count2 ++
+            },
+            addCount3() {
+                this.count3 ++
+            },
+            login() {
+                alert('로그인 되었습니다.')
+            }
+        }
+    })
+</script>
+</html>

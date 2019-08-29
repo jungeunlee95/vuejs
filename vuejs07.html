@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue.js Sample</title>
+</head>
+<body>
+<!--
+    [ 이벤트 리스너 v-on 디렉티브 ]
+    v-on 디렉티브를 사용하여 DOM 이벤트를 듣고 트리거 될 때 JavaScript를 실행할 수 있다.
+        - 트리거(Trigger-방아쇠)는 어느 특정한 동작에 반응해 자동으로 필요한 동작을 실행하는 것을 뜻함
+        - 로그인한다고 치면 로그인 버튼 클릭하는게 트리거임 !
+
+
+    [ 주사위 던지기 만들기 ]
+    1) 주사위 수를 나타내는 값 하나 정하기
+    2) 주사위를 던졌을 때, 1–6사이의 랜덤한 숫자를 반환해야한다.
+    [ 로직으로 생각해보기 ]
+    1) 주사위 수를 나타내는 값을 하나 정해 data에 선언해 줘야한다.
+    2–1) methods 내에 1–6사이의 랜덤한 숫자를 반환하여 data에 선언해준 값을 바꿔주는 함수를 생성해야 한다.
+    2–2) 주사위를 던졌을 때 함수를 실행할 수 있도록 이벤트 리스너인 v-on을 사용해야 한다.
+-->
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- vue js -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<div id="app">
+    {{ number }} <!-- 주사위 숫자 -->
+    <button v-on:click="rollDice">주사위 던지기</button>
+</div>
+</body>
+
+<script>
+    var example1 = new Vue({
+        el: "#app",
+        data: {
+            number: 0 // 주사위의 숫자를 저장할 변수
+        },
+        methods:{
+            // 주사위를 던졌을 때 실행되는 함수
+            rollDice: function () {
+                // 임의의 변수 N을 설정하여 1-6사이의 임의의 숫자를 반환
+                let N = Math.floor(Math.random() * (6)) + 1;
+                // 인스턴스 내부의 값을 불러올 때는 this를 사용
+                this.number = N;
+            }
+        }
+    })
+</script>
+</html>
