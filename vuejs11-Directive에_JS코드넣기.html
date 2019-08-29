@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vue.js Sample</title>
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- vue js -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!--
+    Directive에 JS 코드 넣기
+    -> methods 객체를 이용하지 않고 직접 JavaScript 코드를 template 내에 입력하는 방법
+-->
+<div id="app">
+    {{ clickCount }} <!-- 클릿 횟수 -->
+    <button v-on:click="clickCount ++" class="btn btn-primary">클릭</button> <!--count ++ JS 코드를 직접 넣기-->
+</div>
+
+</body>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            clickCount: 0 // 클릭 횟수를 저장할 변수
+        }
+    })
+</script>
+</html>
