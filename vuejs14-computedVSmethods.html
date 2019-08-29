@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vue.js Sample</title>
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- vue js -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!--
+    VueJS의 computed VS methods
+-->
+<div id="app" class="container">
+    <p>count: {{ count }}</p>
+    <p>second count: {{ secondCount }}</p>
+    <p>computed: {{ double }}</p>
+    <p>methods: {{ triple() }}</p>
+    <button v-on:click="count ++" class="btn btn-primary">클릭</button>
+    <button v-on:click="secondCount ++" class="btn btn-danger">클릭</button>
+</div>
+
+</body> 
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            count: 0,
+            secondCount: 0
+        },
+        computed: {
+            double: function () {
+                console.log('Computed double')
+                return this.count * 2
+            }
+        },
+        methods: {
+            triple: function () {
+                console.log('methods triple')
+                return this.count * 3
+            }
+        }
+    })
+</script>
+</html>

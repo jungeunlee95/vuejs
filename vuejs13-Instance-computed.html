@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vue.js Sample</title>
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- vue js -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!--
+    VueJS Instance - computed, methods
+    템플릿 내의 표현식은 단순한 연산에만 사용이 가능하기 때문에,
+    복잡한 계산식을 계산해서 값을 return 해주는 “계산된 속성”이라는 computed 가 필요
+
+-->
+<div class="app" class="container">
+    {{ clickCount*3 }} <br>
+    {{ isLargerThanTen }}   <br>
+    <button v-on:click="clickCount ++" class="btn btn-primary">클릭</button> <!--count ++ JS 코드를 직접 넣기-->
+</div>
+
+</body> 
+
+<script>
+    new Vue({
+        el: ".app",
+        data: {
+            clickCount:0
+        },
+        computed : {
+            isLargerThanTen : function(){
+                return this.clickCount * 3 > 10 ? "10보다 큽니다." : "10보다 작거나 같습니다"
+            }
+        }
+    })
+</script>
+</html>
