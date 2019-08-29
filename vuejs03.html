@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue.js Sample</title>
+</head>
+<!--
+    HTML 속성 내에서 Vue에 선언된 값을 사용하고 싶어진다면 어떻게 해야할까까.!?
+    ex ) <a href="{{ link }}">링크</a> ==> XXXX불가능!!
+    v-bind 디렉티브를 사용해야함!
+    ex ) <a v-bind:href="link">링크</a>
+-->
+<body>
+    <div id="app">
+        <!--전체 문법-->
+        <a v-bind:href="linkaddrs">naver 바로가기</a><br>
+
+        <!--약어-->
+        <a :href="linkaddrs2">daum 바로가기</a><br>
+
+        
+        <!-- 전체 문법 -->
+        <a v-on:click="doSomething"> ... </a>
+
+        <!-- 약어 -->
+        <a @click="doSomething"> ... </a>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            linkaddrs:"https://www.naver.com",
+            linkaddrs2:"https://www.daum.net"
+        },
+        methods: {
+        }
+    })
+</script>
+</html>
