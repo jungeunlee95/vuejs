@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue.js Sample</title>
+</head>
+<body>
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- vue js -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<!-- 상위 컴포넌트 -->
+<div id="app" class="container">
+    <!--
+        하위 컴포넌트에 상위 컴포넌트가 갖고 있는 message를 전달함
+        - 프롭스는 상위 컴포넌트에서 하위 컴포넌트로 내리는 데이터 속성을 의미한다.
+    -->
+    <child-component v-bind:is-propsdata="message"></child-component>
+</div>
+
+</body>
+
+<script>
+    // 하위 컴포넌트
+    Vue.component('child-component', {
+        // 상위 컴포넌트의 data 속성인 message를 is-propsdata라는 속성으로 넘겨받음
+        props: ['is-propsdata'],
+        template: '<p>{{ isPropsdata }}</p>'
+    });
+
+    // 상위 컴포넌트
+    var app = new Vue({ 
+        el: '#app',
+        data: {
+            message: 'Hello Vue! from Parent Component',
+        }
+    });
+
+</script>
+</html>
