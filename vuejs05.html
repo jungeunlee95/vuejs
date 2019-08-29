@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue.js Sample</title>
+</head>
+<body>
+<!--
+    [ v-once 디렉티브 ]
+    sayHello가 선언된 순간 title이 모두 안녕못해! 로 바뀌어버림..
+      -> 해결을 위해서 v-once 디렉티브 사용!
+
+-->
+<div id="app">
+    <h1 v-once>{{ title }}</h1>
+    <p>{{ sayHello() }}</p>
+    <hr>
+
+    <h1 v-once>{{ title }}</h1>
+    <p>{{ sayHello() }}</p>
+    <hr>
+
+    <h1 v-once>{{ title }}</h1>
+    <p>{{ sayHello() }}</p>
+
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            title : "하이~"
+        },
+        methods : {
+            sayHello : function(){
+                this.title = '안녕못해!'
+                return this.title
+            }
+        }
+    })
+</script>
+</html>

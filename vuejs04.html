@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue.js Sample</title>
+</head>
+<body>
+<!-- sayHello가 선언된 순간 title이 모두 안녕못해! 로 바뀌어버림..-->
+<div id="app">
+    <p>{{ title }}</p>
+    <p>{{ sayHello() }}</p>
+    <hr>
+    <p>{{ title }}</p>
+    <p>{{ sayHello() }}</p>
+    <hr>
+    <p>{{ title }}</p>
+    <p>{{ sayHello() }}</p>
+
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            title : "하이~"
+        },
+        methods : {
+            sayHello : function(){
+                this.title = '안녕못해!'
+                return this.title
+            }
+        }
+    })
+</script>
+</html>
