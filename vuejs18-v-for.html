@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vue.js Sample</title>
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- vue js -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!--
+     v-for 디렉티브 : 비슷한 내용을 반복적으로 보여줘야하는 경우 사용
+        - 사용법 : v-for="아이템명 in array"
+        - v-for 내의 현재 index 값 구하기 :  v-for="( item, i ) in list"
+        - VueJS의 공식문서에는 각 리스트의 id 값을 선언해주는 것이 이상적이라고 코멘트하고 있으니 유의하시기 바랍니다.
+-->
+<div id="app" class="container"><br><br>
+    <!-- string 반복 -->
+    <h1>저녁메뉴</h1>
+    <ul>
+        <li v-for="(myMenu, i) in dinnerList">[{{ i+1 }}] : {{ myMenu }}</li>
+    </ul>
+
+    <!-- object 반복 -->
+    <h1>여행지 리스트</h1>
+    <ul>
+        <li v-for="city in travelList" :key="city.name">
+            {{ city.name }} - {{ city.distance }}
+        </li>
+    </ul>
+</div> 
+
+</body>
+
+<script>
+    new Vue({
+        el : "#app",
+        data : {
+            dinnerList : ['삼겹살', '소갈비', '된장찌개', '김치찌개', '치킨', '순대국'],
+            travelList:[
+                {name: '강릉', distance: '차로 3시간'},
+                {name: '부산', distance: '차로 5시간'},
+                {name: '춘천', distance: '차로 2시간'},
+                {name: '대만', distance: '비행기로 3시간'},
+                {name: '필리핀', distance: '비행기로 5시간'},
+                {name: '스페인', distance: '비행기로 17시간'},
+            ]
+        }
+    })
+</script>
+</html>
