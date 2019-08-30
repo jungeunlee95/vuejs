@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vue.js Sample</title>
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- vue js -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<style>
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color:grey;
+        display:inline-block;
+        margin: 10px;
+    }
+
+    .red {
+        background-color: red;
+    }
+
+    .green {
+        background-color: green;
+    }
+
+    .blue {
+        background-color: blue;
+    }
+
+    .pink {
+        background-color: pink;
+    }
+
+</style>
+</head>
+<body>
+<!--
+     클래스와 스타일 바인딩
+     - 공식 문서 : https://kr.vuejs.org/v2/guide/class-and-style.html
+     - 사용 방법 :  v-bind:class="클래스명"
+                   v-bind:class="{ 클래스명: 조건 }"
+
+    약어 정리 :
+    v-on:click -> @click
+    v-bind:class -> :class
+        :class="{red: attachRed, green: !attachRed}"
+               키(속성명)  속성값   키(속성명)  속성값
+        : red라는 클래스는 attachRed가 true인 경우에 적용이 되고,
+          green이라는 클래스는 attachRed가 false인 경우에 적용
+-->
+<div id="app" class="container"><br><br>
+
+    <!-- v-bind:class가 객체를 받은 경우 -->
+    <!-- click 시 attachRed true/false 변경 -->
+    <!-- :class로 object를 바인딩-->
+    <div
+            class="demo"
+            @click="attachRed = !attachRed"
+            :class="{red: attachRed, green: !attachRed}"
+            class="demo"
+    >1</div>
+
+    <!-- v-bind:class가 문자열을 받는 경우 -->
+    <div
+            class="demo"
+            :class="customColor"
+    >2</div>
+
+    <!-- v-bind:class의 객체가 복잡한 경우 -->
+    <div
+            class="demo"
+            :class="divClasses"
+    >3</div>
+
+
+
+    <div>
+        <!-- customColor 와 2-way-binding(양방향)으로 연결 -->
+        2번 상자의 색: <input type="text" v-model="customColor">
+    </div>
+</div>
+
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            attachRed: false,
+            customColor:'green'
+        },
+        computed: {
+            divClasses: function() {
+                return {
+                    red: this.attachRed,
+                    green: !this.attachRed
+                }
+            }
+        }
+
+    })
+    Vue.config.devtools = true
+</script>
+</html>
