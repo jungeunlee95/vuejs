@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rock Scissor Paper</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+</head>
+<!--
+    [ 여러 인스턴스 사용하기 / Multiple Instance ]
+    - 멀티 인스턴스 관계
+-->
+<body>
+    <div id="app">
+        {{ title }}
+    </div>
+    <br>
+    <div id="app2">
+        {{ title }}
+        <br>
+        <button @click="onChange()">변경</button>
+        <button @click="orginal()">되돌리기</button>
+    </div>
+</body>
+<script>
+    var vm1 = new Vue({
+        el: '#app',
+        data: {
+            title : '첫 인스턴스'
+        }
+    })
+
+    setTimeout(function () {
+        vm1.title = 'Changed By Timer'
+    }, 3000)
+
+    var vm2 = new Vue({
+        el: '#app2',
+        data: {
+            title: '두번째 인스턴스'
+        },
+        methods : {
+            onChange : function(){
+                vm1.title = '첫 인스턴스 변! 경 !'
+            },
+            orginal : function () {
+                vm1.title = '첫 인스턴스'
+            }
+        }
+    })
+
+</script>
+</html>

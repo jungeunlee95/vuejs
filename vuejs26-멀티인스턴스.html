@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rock Scissor Paper</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+</head>
+<!--
+    [ 여러 인스턴스 사용하기 / Multiple Instance ]
+
+-->
+<body>
+    <div id="app">
+        {{ title }}
+    </div>
+
+    <div id="app2">
+        {{ title }}
+    </div>
+</body>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            title: '첫 인스턴스'
+        }
+    })
+
+    new Vue({
+        el: '#app2',
+        data: {
+            title: '두번째 인스턴스'
+        }
+    })
+
+</script>
+</html>
