@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vue.js Sample</title>
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- vue js -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!--
+    Watch 기본
+    공식문서
+    : https://kr.vuejs.org/v2/guide/computed.html?source=post_page-----d25316c4ef42----------------------#computed-%EC%86%8D%EC%84%B1-vs-watch-%EC%86%8D%EC%84%B1
+
+    - watch는 말 그대로 특정 대상을 보고있는 감시자의 역할을 한다.
+    - 지정한 대상의 값이 변경될 때마다 정의한 함수가 실행된다.
+-->
+<div id="app" class="container">
+    <h1>{{ count }}</h1><br>
+    <p>{{ text }}</p>
+    <button @click="count --">카운트 감소</button>
+    <button @click="count ++">카운트 증가</button><br>
+
+
+    <input type="number" v-model="num">
+    <button @click="plusCustomNum(count, num)">값만큼 변경</button>
+</div>
+
+</body>
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            count: 0,
+            num : 0,
+            text: '변경 전입니다.',
+        },
+        watch: {
+            /*
+            * data에 선언되어 있는 count가 watch 안에도 그대로 선언
+            * watch는 기존에 Vue 인스턴스 내에 선언된 값의 변화를 감시하는 역할
+            * Vue 인스턴스 내에 선언된 값을 그대로 다시 사용
+            */
+            count: function (newVal, oldVal) {
+                this.text = oldVal + '에서 ' + newVal + '로 변경되었습니다.'
+            }
+        },
+        methods : {
+            plusCustomNum : function(oldVal, newVal){
+                this.text = oldVal + '에서 ' + newVal + '로 변경되었습니다.'
+                this.count = oldVal + Number(newVal);
+            }
+        }
+    })
+    Vue.config.devtools = true
+</script>
+</html>

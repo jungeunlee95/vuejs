@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vue.js Sample</title>
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- vue js -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!--
+    Computed VS Watch
+    공식문서
+    : https://kr.vuejs.org/v2/guide/computed.html?source=post_page-----d25316c4ef42----------------------#computed-%EC%86%8D%EC%84%B1-vs-watch-%EC%86%8D%EC%84%B1
+    ==> computed 쓰면 되는 곳에 왜 watch를 남발하고 그래?!
+-->
+<div id="app" class="container">
+    <h1>{{ count }}</h1><br>
+    <h2>computed: {{ calculated }}</h2>
+    <h2>watch: {{ watchedCount }}</h2>
+    <button @click="count --">카운트 감소</button>
+</div>
+
+</body>
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+<script>
+    var compareWatchComputed = new Vue({
+        el : "#app",
+        data : {
+            count : 3,
+            watchedCount : 9,
+        },
+        computed : {
+            calculated : function(){
+                return this.count * 3
+            }
+        },
+        watch : {
+            count:function(newVal){
+                this.watchedCount = newVal * 3
+            }
+        }
+
+    })
+    Vue.config.devtools = true
+</script>
+</html>
