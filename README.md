@@ -14,7 +14,7 @@
 
 ### [Vue.js 입문서 - 프론트엔드 개발자를 위한](https://joshua1988.github.io/web-development/vuejs/vuejs-tutorial-for-beginner/)
 
-### [맨땅에 vuejs](https://medium.com/@hozacho/맨땅에-vuejs-리스트-462d88047893)
+### [맨땅에 vuejs](https://medium.com/@hozacho/맨땅에-vuejs-리스트-462d88047893) - 투두리스트부터 이어서...
 
 ### [Vue에서 컴포넌트 템플릿 정의하는 7가지 방법](https://github.com/FEDevelopers/tech.description/wiki/Vue에서-컴포넌트-템플릿을-정의하는-7가지-방법)
 
