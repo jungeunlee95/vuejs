@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rock Scissor Paper</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <div id="app"> 
+        <div class="row">
+            <div class="small-5 columns text-center">
+                <!--<img src="images/rock.jpg"  alt="" class="text-center">-->
+                <img :src="myChoiceImg" alt="" class="text-center">
+                <h1 class="text-center"><strong>YOU</strong></h1>
+            </div>
+            <div class="small-2 columns text-center">
+                <h1 style="font-size:100px;"><strong>{{count}}</strong></h1>
+            </div>
+            <div class="small-5 columns text-center">
+                <img :src="comChoiceImg" alt="" class="text-center">
+                <h1 class="text-center"><strong>Computer</strong></h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-6 columns text-center">
+                <div class="battle-wrap">
+                    <img    v-for="life in lifeOfMe"
+                            src="./images/heart.jpg" class="heart" alt="">
+                    <img
+                            v-for="life in leftLifeOfMe"
+                            src="./images/broken-heart.jpg"
+                            class="heart"
+                            alt=""
+                    >
+                </div>
+            </div>
+            <div class="small-6 columns text-center">
+                <div class="battle-wrap">
+                    <img    v-for="life in lifeOfCom"
+                            src="./images/heart.jpg" class="heart" alt="">
+                    <img
+                            v-for="life in leftLifeOfCom"
+                            src="./images/broken-heart.jpg"
+                            class="heart"
+                            alt=""
+                    >
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-6 columns text-center">
+                <div class="row">
+                    <div class="small-8 small-offset-2 columns text-center">
+                        <label v-for="select in selects" class="radio-label">
+                            <input type="radio" v-model="myChoice" :value="select.value"> {{select.name}}
+                        </label>
+                        <!--<label class="radio-label"><input type="radio"> 가위</label>
+                        <label class="radio-label"><input type="radio"> 바위</label>
+                        <label class="radio-label"><input type="radio"> 보</label>-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <div class="text-center" v-if="isSelectable">
+                            <button class="start-btn" @click="startGame()">선택 완료!</button>
+                        </div>
+                        <div v-else class="loading"> 기다리는 중...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="small-6 columns text-center">
+                <p v-if="isSelectable">기다리는 중...</p>
+                <p v-else>선택 중...</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-12 columns log">
+                <ul>
+                    <li :class="{
+                            'win-log': log.winner === 'me',
+                            'defeat-log': log.winner === 'com',
+                            'draw-log': log.winner === 'samsam'
+                        }"
+                        v-for="(log,i) in logs"
+                    >
+                        <p v-if="log.winner === 'me'">
+
+                            {{logs.length - i}}번째 게임 : 당신이 이겼습니다 ! 결과 = {{ log.message }}
+                        </p>
+                        <p v-if="log.winner === 'com'">
+                            {{logs.length - i}}번째 게임 : 컴퓨터가 이겼습니다 ! 결과 = {{ log.message }}
+                        </p>
+                        <p v-if="log.winner === 'samsam'">
+                            {{logs.length - i}}번째 게임 : 비겼습니다 ! 결과 = {{ log.message }}
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/rock-scissors-paper.js"></script>
+</html>

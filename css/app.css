@@ -1,0 +1,67 @@
+.text-center {
+    text-align: center;
+}
+
+.battle-wrap {
+    max-width:300px;
+    margin:0 auto;
+}
+
+.heart {
+    display:inline-block;
+    width:30%;
+}
+
+.start-btn {
+    color: blue;
+    padding:15px 40px;
+    margin-top:30px;
+    background-color: #e4e8ff;
+    transition: 0.1s color ease-in-out, 0.1s background-color ease-in-out;
+}
+
+.start-btn:hover {
+    color:#fff;
+    background-color: blue;
+}
+.loading {
+    color: grey;
+    display:inline-block;
+    padding:15px 40px;
+    margin-top:30px;
+    background-color: #dadada;
+    transition: 0.1s color ease-in-out, 0.1s background-color ease-in-out;
+}
+
+.radio-label{
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.log {
+    width:100%;
+    text-align:center;
+}
+.log ul {
+    list-style: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.log ul li {
+    margin: 5px;
+    padding:10px;
+    border:1px solid #dadada;
+}
+
+.win-log {
+    color:green;
+    background-color:#96edc6;
+}
+.defeat-log {
+    color: red;
+    background-color: #ffc0c1;
+}
+.draw-log {
+    background-color: #f7f7f7;
+}
