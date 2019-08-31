@@ -1,8 +1,10 @@
 [[IntelliJ 웹스톰(WebStorm)] 실시간 미리보기(live-server) 설정 하는 법](https://recoveryman.tistory.com/359)
 
-> intelliJ IDEA - terminal 에서
+> intelliJ IDEA - terminal 
 >
-> `live-server` 명령어 사용!
+> `npm i -g live-server` : live-server설치
+>
+> `live-server`  : live-server 실행
 
 ---
 
