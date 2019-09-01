@@ -13,25 +13,36 @@
         <router-link to="/main">Main 컴포넌트로 이동</router-link>
         <router-link to="/login">Login 컴포넌트로 이동</router-link>
     </p>
+
+    <!--라우터링크에 따른 화면이 뿌려지는 영역-->
     <router-view></router-view>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+<!--라우터 cdn 추가-->
 <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
 <script>
     // 3. Main. Login 컴포넌트 내용 정의
+    //      - 템플릿속성으로 간단한 HTML 코드 정의
     var Main = { template: '<div>main</div>' };
     var Login = { template: '<div>login</div>' };
-    // 4. 각 url에 해당하는 컴포넌트 등록
+
+    // 4. 각 url에 해당하는 컴포넌트 등록(지정)
     var routes = [
         { path: '/main', component: Main },
         { path: '/login', component: Login }
     ];
+
     // 5. 뷰 라우터 정의
+    //      - url에 따라 화면이 전환될 수 있게 라우터 정의
     var router = new VueRouter({
+        mode : 'history',
         routes
     });
+
     // 6. 뷰 라우터를 인스턴스에 등록
+    //  - 새 인스턴스 생성, 라우터 추가
+    //  - $mount('#app') : el속성과 같이 인스턴스를 화면에 붙여주는 역할
     var app = new Vue({
         router
     }).$mount('#app');

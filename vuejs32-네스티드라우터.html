@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Nested Router</title>
+</head>
+<body>
+    <div id="app">
+        <!-- User 컴포넌트가 뿌려질 영역 -->
+        <router-view></router-view>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+<script>
+
+    /*
+        User 컴포넌트 내용 정의
+        User 컴포넌트 하위에 하위 컴포넌트를 넣을 것이기 때문에
+        내부에 <router-view></router-view>를 갖고있는다
+    */
+    var User = {
+        template: `
+          <div>
+            User Component
+            <router-view></router-view>
+          </div>
+        `
+    };
+
+    /* UserProfile 컴포넌트 내용 정의 */
+    var UserProfile = { template: '<p>User Profile Component</p>' };
+
+    /* UserPost 컴포넌트 내용 정의 */
+    var UserPost = { template: '<p>User Post Component</p>' };
+
+    /* 네스티드 라우팅 정의 */
+    var routes = [
+        {
+            /* 상위 컴포넌트 정의 */
+            path: '/user',
+            component: User,
+            /* 하위 컴포넌트 정의 */
+            children: [
+                {
+                    path: 'posts',
+                    component: UserPost
+                },
+                {
+                    path: 'profile',
+                    component: UserProfile
+                },
+            ]
+        }
+    ];
+
+    // 뷰 라우터 정의
+    var router = new VueRouter({
+        routes
+    });
+
+    // 뷰인스턴스에 라우터 추가
+    var app = new Vue({
+        router
+    }).$mount('#app');
+</script>
+</body>
+</html>
