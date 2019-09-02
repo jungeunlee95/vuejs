@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue Template - Directives</title>
+</head>
+<body>
+    <div id="app"  class="container">
+        <input v-model="message">
+        <button v-on:click="reverseMsg">문자열 역순</button>
+    </div>
+
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue js !'
+        },
+        watch:{
+            message: function(data){
+                console.log("message의 값이 바뀝니다! : " + data )
+            }
+        },
+        computed:{
+            reversedMessage : function(){
+                return this.message.split('').reverse().join('');
+            }
+        },
+        methods:{
+            reverseMsg: function(){
+                this.message = this.message.split('').reverse().join('') + "★";
+                return this.message;
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>v-once Sample</title>
+</head>
+<body>
+    <div id="app" v-once>
+        {{message}}
+        <p>{{ sayHello() }}</p>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue.js!!'
+        },
+        methods: {
+            sayHello: function () {
+                this.message = "안녕 뷰제이에스?"
+                return this.message
+            }
+        }
+    });
+</script>
+</body>
+</html>

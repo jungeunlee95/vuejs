@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>v-bind Sample</title>
+</head>
+<body>
+    <div id="app">
+        <p v-bind:id="idA">아이디 바인딩</p>
+        <p v-bind:class="classA">클래스 바인딩</p>
+        <p :style="styleA">스타일 바인딩</p>
+    </div>
+
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            idA: 10,
+            classA: 'container',
+            styleA: 'color:red'
+        }
+    });
+</script>
+</body>
+</html>
