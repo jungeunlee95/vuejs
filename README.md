@@ -24,6 +24,8 @@
 
 ## 참고 자료
 
+<b style="background-color:yellow">[ Vue 기본 개념 ]</b>
+
 ### [Do it! Vue.js 입문 책](http://www.yes24.com/Product/Goods/58206961)
 
 ### [Vue.js 공식문서](https://kr.vuejs.org/v2/guide/installation.html)
@@ -35,3 +37,10 @@
 ### [Vue에서 컴포넌트 템플릿 정의하는 7가지 방법](https://github.com/FEDevelopers/tech.description/wiki/Vue에서-컴포넌트-템플릿을-정의하는-7가지-방법)
 
 ### [Vue.js 살펴보기](http://jeonghwan-kim.github.io/vue/2017/03/27/vue.html?source=post_page-----f0609a7756b7----------------------)
+
+---
+
+<b style="background-color:yellow">뷰 라우터 공부</b>
+
+### [Vue Router](https://router.vuejs.org/kr/)
+
