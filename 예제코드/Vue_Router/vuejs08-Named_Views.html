@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ 이름을 가지는 뷰 ]
+    때로는 여러 개의 뷰를 중첩하지 않고 동시에 표시해야 하는 경우가 있습니다.
+    sidebar 뷰와 main 뷰로 레이아웃을 생성합니다.
+    이름이 지정된 뷰가 편리한 경우 입니다.
+    뷰에 하나의 outlet이 있는 대신 여러 개를 사용하여 각 outlet에 이름을 지정할 수 있습니다.
+    이름이 없는 router-view는 이름으로 default가 주어집니다.
+-->
+<body>
+<div id="app">
+    <h1>Named Views</h1>
+    <ul>
+        <li>
+            <router-link to="/">/</router-link>
+        </li>
+        <li>
+            <router-link to="/other">/other</router-link>
+        </li>
+    </ul>
+    <router-view></router-view>
+    <router-view name="a"></router-view>
+    <router-view name="b"></router-view>
+</div>
+</body>
+<script>
+    const ExampleA = { template: '<div>ExampleA</div>' }
+    const ExampleB = { template: '<div>ExampleB</div>' }
+    const ExampleC = { template: '<div>ExampleC</div>' }
+
+    const router = new VueRouter({
+        routes: [
+            { path: '/',
+                components: {
+                    default: ExampleA,
+                    a: ExampleB,
+                    b: ExampleC
+                }
+            },
+            {
+                path: '/other',
+                components: {
+                    default: ExampleA,
+                    a: ExampleC,
+                    b: ExampleB
+                }
+            }
+        ]
+    })
+
+    new Vue({
+        router,
+        el: '#app'
+    })
+</script>
+</html>

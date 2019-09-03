@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ 리다이렉트와 별칭 ]
+-->
+<body>
+<div id="app">
+    <h1>Route Alias</h1>
+    <ul>
+        <li>
+            <router-link to="/root">
+                <h2>/root (renders /root)</h2>
+            </router-link>
+        </li>
+        <li>
+            <router-link to="/foo">
+                <h2>/foo (renders /home/foo)</h2>
+            </router-link>
+        </li>
+        <li>
+            <router-link to="/home/bar-alias">
+                <h2>/home/bar-alias (renders /home/bar)</h2>
+            </router-link>
+        </li>
+        <li>
+            <router-link to="/baz">
+                <h2>/baz (renders /home/baz)</h2>
+            </router-link>
+        </li>
+        <li>
+            <router-link to="/home/baz-alias">
+                <h2>/home/baz-alias (renders /home/baz)</h2>
+            </router-link>
+        </li>
+        <li>
+            <router-link to="/home">
+                <h2>/home (renders /home/default)</h2>
+            </router-link>
+        </li>
+        <li>
+            <router-link to="/home/nested-alias/foo">
+                <h2>/home/nested-alias/foo (renders /home/nested/foo)</h2>
+            </router-link>
+        </li>
+    </ul>
+    <hr>
+    <router-view class="view"></router-view>
+</div>
+</body>
+<script>
+    const Root = {template: '<div><h1>root</h1></div>'}
+    const Home = {template: '<div><h1>Home</h1><router-view></router-view></div>'}
+    const Foo = {template: '<div>foo</div>'}
+    const Bar = {template: '<div>bar</div>'}
+    const Baz = {template: '<div>baz</div>'}
+    const Default = {template: '<div>default</div>'}
+    const Nested = {template: '<router-view/>'}
+    const NestedFoo = {template: '<div>nested foo</div>'}
+
+    const router = new VueRouter({
+        routes: [
+            {path: '/root', component: Root, alias: '/root-alias'},
+            {
+                path: '/home', component: Home,
+                children: [
+                    // absolute alias
+                    {path: 'foo', component: Foo, alias: '/foo'},
+                    // relative alias (alias to /home/bar-alias)
+                    {path: 'bar', component: Bar, alias: 'bar-alias'},
+                    // multiple aliases
+                    {path: 'baz', component: Baz, alias: ['/baz', 'baz-alias']},
+                    // default child route with empty string as alias.
+                    {path: 'default', component: Default, alias: ''},
+                    // nested alias
+                    {
+                        path: 'nested', component: Nested, alias: 'nested-alias',
+                        children: [
+                            {path: 'foo', component: NestedFoo}
+                        ]
+                    }
+                ]
+            }
+        ]
+    })
+
+    new Vue({
+        router
+    }).$mount('#app')
+</script>
+</html>
