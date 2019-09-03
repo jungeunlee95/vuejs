@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ 리다이렉트와 별칭 ]
+-->
+<body>
+<div id="app">
+    <h1>Route Alias</h1>
+    <ul>
+        <li>
+            <router-link to="/root">
+                <h2>/root (renders /root)</h2>
+            </router-link>
+        </li>
+    </ul>
+    <hr>
+    <router-view></router-view>
+</div>
+</body>
+<script>
+    const Root = {template: '<div><h1>root</h1></div>'}
+    const Home = {template: '<div><h1>Home</h1></div>'}
+
+
+    const router = new VueRouter({
+        routes: [
+            {path: '/root', redirect: '/b'},
+            {path: '/home', component: Home, alias: '/b'},
+        ]
+    })
+
+    new Vue({
+        router
+    }).$mount('#app')
+</script>
+</html>
