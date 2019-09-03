@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>scope</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ 기본 scope ]
+-->
+<body>
+<div id="app">
+    <h1>Hello App!</h1>
+
+</div>
+</body>
+<script>
+    function scopeTest1() {
+        var es = [];
+        for (var i = 0; i < 10; i++) {
+            es[i] = function () {
+                console.log("[scopeTest1] : ECMAScript is ES" + i);
+            };
+        }
+        es[6](); // 출력되는 값은? -> ECMAScript is ES10
+    }
+
+    scopeTest1();
+    /*
+        우리가 원하는 출력값은 "ECMAScript is ES6" 이다.
+        하지만 "ECMAScript is ES10"이 출력된다.
+        이유는 function scope 이기에 i는 scopeTest 함수단위인 scope에 존재한다.
+        결과적으로 es[6]() 호출 시 scope 안의 최종 i인 10을 참조하기 때문에 10이 출력된다.
+    */
+
+    // -----------------------------------------------------------------------
+    function scopeTest2() {
+        var es = [];
+        for (var i = 0; i < 10; i++) { // or (let i = 0; i < 10; i++)
+            let c = i;
+            es[i] = function () {
+                console.log("[scopeTest2] : ECMAScript is ES" + c);
+            };
+        }
+        es[6]();
+    }
+
+    scopeTest2();
+
+    /*
+        i에 대해 원하는 값을 위해 참조할 scope를 다르게 해야한다.
+        즉, i가 참조할 scope는 block scope 형태로 만들어줘야한다.
+        즉시실행함수를 사용하여 해결할 수 있다.
+
+        즉시실행함수를 통해 i의 scope를 block scope와 같은 형태로 분리했다.
+        es6의 경우에는 block scope인 let 키워드를 통해 해결할 수 있다.
+    */
+
+</script>
+</html>

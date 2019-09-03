@@ -8,6 +8,32 @@
 
 <br>
 
+## Vue CLI 설치
+
+**설치 :** `npm install vue-cli -global`
+
+**설치 버전 확인 :** `vue`
+
+```
+> vue
+Usage: vue <command> [options]
+
+Options:
+  -V, --version  output the version number
+  -h, --help     output usage information
+
+Commands:
+  init           generate a new project from a template
+  list           list available official templates
+  build          prototype a new project
+  create         (for v3 warning only)
+  help [cmd]     display help for [cmd]
+```
+
+---
+
+<br>
+
 ## live-server 설정하는 방법
 
 [[IntelliJ 웹스톰(WebStorm)] 실시간 미리보기(live-server) 설정 하는 법](https://recoveryman.tistory.com/359)
@@ -43,4 +69,6 @@
 <b style="background-color:yellow">뷰 라우터 공부</b>
 
 ### [Vue Router](https://router.vuejs.org/kr/)
+
+### [뷰 라우터 살펴보기](http://jeonghwan-kim.github.io/2018/04/07/vue-router.html)
 
