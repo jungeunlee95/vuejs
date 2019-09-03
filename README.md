@@ -66,9 +66,18 @@ Commands:
 
 ---
 
-<b style="background-color:yellow">뷰 라우터 공부</b>
+<b style="background-color:yellow">[ 뷰 응용 공부 ]</b>
 
 ### [Vue Router](https://router.vuejs.org/kr/)
 
 ### [뷰 라우터 살펴보기](http://jeonghwan-kim.github.io/2018/04/07/vue-router.html)
 
+### [Vuex 공식문서](https://vuex.vuejs.org/kr/)
+
+---
+
+<b style="background-color:yellow">[뷰 팁]</b>
+
+### [뷰 팁](https://taegon.kim/archives/6698)
+
+### [뷰스타일가이드 공식문서](https://vuejs.org/v2/style-guide/)

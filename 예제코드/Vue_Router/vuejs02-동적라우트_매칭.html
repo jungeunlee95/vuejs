@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ 동적 라우트 매칭 ]
+    주어진 패턴을 가진 라우트를 동일한 컴포넌트에 매핑해야하는 경우가 자주 있습니다.
+    예를 들어 모든 사용자에 대해 동일한 레이아웃을 가지지만,
+    하지만 다른 사용자 ID로 렌더링되어야하는 User 컴포넌트가 있을 수 있습니다.
+    vue-router에서 우리는 경로에서 동적 세그먼트를 사용하여 다음을 할 수 있습니다.
+-->
+<body>
+    <div id="app">
+        <p>
+            <router-link to="/user/leeap1004">아이디</router-link>
+            <router-link to="/user/Jungeun">이름</router-link>
+        </p>
+
+        <router-view></router-view>
+    </div>
+</body>
+<script>
+    const User = {
+        template : '<div> User : {{ $route.params.id}} </div>'
+    }
+
+    const router = new VueRouter({
+        routes: [
+            {
+                path: '/user/:id',
+                component: User
+            }
+        ]
+    })
+
+    const app = new Vue({
+        router
+    }).$mount('#app');
+</script>
+</html>

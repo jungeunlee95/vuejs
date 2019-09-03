@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ Params 변경 사항에 반응하기 ]
+    동일한 컴포넌트의 params 변경 사항에 반응하려면 $route 객체를 보면된다.
+-->
+<body>
+    <div id="app">
+        <p>
+            <router-link to="/user/leeap1004">아이디</router-link>
+            <router-link to="/user/Jungeun">이름</router-link>
+        </p>
+
+        <router-view></router-view>
+    </div>
+</body>
+<script>
+    const User = {
+        template : '<div> User : {{ $route.params.id}} </div>',
+        watch: {
+            '$route' (to, from){
+                console.log('====================================');
+                console.log(to);
+                console.log(from);
+            }
+        }/*,
+        beforeRouteUpdate (to, from, next) {
+            console.log('====================================');
+            console.log(to);
+            console.log(from);
+            console.log(next);
+        }*/
+    }
+
+    const router = new VueRouter({
+        routes: [
+            {
+                path: '/user/:id',
+                component: User
+            }
+        ]
+    })
+
+    const app = new Vue({
+        router
+    }).$mount('#app');
+</script>
+</html>

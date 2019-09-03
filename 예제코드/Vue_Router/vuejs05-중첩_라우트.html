@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ 중첩된 라우트 ]
+    동일한 컴포넌트의 params 변경 사항에 반응하려면 $route 객체를 보면된다.
+-->
+<body>
+    <div id="app">
+        <p><hr>
+            <router-link to="/user/jay">/user/jay</router-link><hr>
+            <router-link to="/user/jay/profile">/user/jay/profile</router-link><hr>
+            <router-link to="/user/jay/posts">/user/jay/posts</router-link><hr>
+        </p>
+        <router-view></router-view>
+    </div>
+</body>
+<script>
+    const User = {
+        template: `
+                    <div class="user">
+                      <h2>User {{ $route.params.id }}</h2>
+                      <router-view></router-view>
+                    </div>
+                  `
+    }
+
+    const UserHome = {
+        template: `<h5 style="color:pink;">UserHome</h5>`
+    }
+
+    const UserProfile = {
+        template: `<h5 style="color:blue;">UserProfile</h5>`
+    }
+
+    const UserPosts = {
+        template: `<h5 style="color:red;">UserPosts</h5>`
+    }
+
+    const router = new VueRouter({
+        routes: [
+            { path: '/user/:id', component: User,
+                children: [
+                    { path:'', component: UserHome },
+                    {
+                        // /user/:id/profile 과 일치 할 때
+                        // UserProfile은 User의 <router-view> 내에 렌더링 됩니다.
+                        path: 'profile',
+                        component: UserProfile
+                    },
+                    {
+                        // /user/:id/posts 과 일치 할 때
+                        // UserPosts가 User의 <router-view> 내에 렌더링 됩니다.
+                        path: 'posts',
+                        component: UserPosts
+                    }
+                ]
+            }
+        ]
+    })
+
+    const app = new Vue({
+        router
+    }).$mount('#app')
+</script>
+</html>
