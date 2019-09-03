@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ 라우트 컴포넌트에 속성 전달 ]
+-->
+<body>
+<div id="app">
+    <h1>Redirect</h1>
+    <ul>
+        <li>
+            <router-link to="/user/leeap1004">
+                $route에 의존성 추가 파라미터 받기
+            </router-link>
+        </li>
+        <br><hr><br>
+        <li>
+            <router-link to="/password/1234">
+                속성에 의존성 해제 파라미터 받기
+            </router-link>
+            <p>> props: false일때는 props 속성을 사용할 수 없다.</p>
+        </li>
+        <br><hr><br>
+        <li>
+            <router-link to="/promotion/from-newsletter">
+                객체모드
+            </router-link>
+        </li>
+        <br><hr><br>
+        <li>
+            <router-link to="/search?q=이정은">
+                함수모드
+            </router-link>
+        </li>
+        <br><hr><br>
+    </ul>
+    <router-view class="view"></router-view>
+</div>
+</body>
+<script>
+    /* $route에 의존성 추가 */
+    const User = {
+        template: '<div>UserId : {{ $route.params.id }}</div>'
+    }
+
+    const Password = {
+        props: ['password'],
+        template: '<div>Password : {{ password }}</div>'
+    }
+    const Promotion = {
+        props: ['newsletterPopup'],
+        template: '<div>Promotion : {{ newsletterPopup }}</div>'
+    }
+    const SearchUser = {
+        props: ['query'],
+        template: '<div>SearchUser : {{ query }}</div>'
+    }
+
+    const router = new VueRouter({
+        routes: [
+            { path: '/user/:id', component: User },
+            { path: '/password/:password', component: Password, props: true },
+            { path: '/promotion/from-newsletter', component: Promotion,
+                    props: { newsletterPopup: false } },
+            { path: '/search', component: SearchUser,
+                    props: (route) => ({ query: route.query.q }) }
+        ]
+    })
+
+    new Vue({
+        router
+    }).$mount('#app')
+</script>
+</html>

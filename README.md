@@ -70,6 +70,12 @@ Commands:
 
 ### [Vue Router](https://router.vuejs.org/kr/)
 
+: 이어서 
+
+```
+https://router.vuejs.org/kr/guide/essentials/history-mode.html#%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95-%EC%98%88%EC%A0%9C
+```
+
 ### [뷰 라우터 살펴보기](http://jeonghwan-kim.github.io/2018/04/07/vue-router.html)
 
 ### [Vuex 공식문서](https://vuex.vuejs.org/kr/)
@@ -82,5 +88,12 @@ Commands:
 
 ### [뷰스타일가이드 공식문서](https://vuejs.org/v2/style-guide/)
 
-### [뷰 예제코드 모음](https://jsfiddle.net/user/posva/fiddles/)
+---
 
+<b style="background-color:yellow">[뷰 예제 코드 보기]</b>
+
+### [각종 뷰 예제코드 모음](https://jsfiddle.net/user/posva/fiddles/)
+
+### [뷰 라우터 예제 깃헙](https://github.com/vuejs/vue-router)
+
+### [doit vuejs 깃헙](https://github.com/jungeunlee95/doit-vuejs)

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ 라우트 컴포넌트에 속성 전달 ]
+-->
+<body>
+<div id="app">
+    <h1>Route props</h1>
+    <ul>
+        <li>
+            <router-link to="/">/</router-link>
+        </li>
+        <li>
+            <router-link to="/hello/Jalynne">/hello/you</router-link>
+        </li>
+        <li>
+            <router-link to="/static">/static</router-link>
+        </li>
+        <li>
+            <router-link to="/dynamic/1">/dynamic/1</router-link>
+        </li>
+        <li>
+            <router-link to="/attrs">/attrs</router-link>
+        </li>
+    </ul>
+    <router-view class="view" my-name="Jungeun"></router-view>
+</div>
+</body>
+<script>
+    const Hello = {
+        props: ['password'],
+        template: `
+                    <div>
+                         <h2 class="hello">Hello {{ $attrs }}</h2>
+                    </div>
+                  `
+    }
+
+    function dynamicPropsFn(route) {
+        const now = new Date()
+        return {
+            name: (now.getFullYear() + parseInt(route.params.years)) + '!'
+        }
+    }
+
+    const router = new VueRouter({
+        routes: [
+            {path: '/', component: Hello},
+            {path: '/hello/:name', component: Hello, props: true},
+            {path: '/static', component: Hello, props: {name: 'world'}},
+            {path: '/dynamic/:years', component: Hello, props: dynamicPropsFn},
+            {path: '/attrs', component: Hello, props: {name: 'attrs'}}
+        ]
+    })
+
+    new Vue({
+        router
+    }).$mount('#app')
+</script>
+</html>
