@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ 프로그래밍 방식 네비게이션 ]
+    동일한 컴포넌트의 params 변경 사항에 반응하려면 $route 객체를 보면된다.
+-->
+<body>
+<div id="app">
+    <router-link to="/user/good">User</router-link>
+    <router-link to="/admin/bad">Admin</router-link>
+    <router-view></router-view>
+    <div>
+        parameter : {{ param }}
+    </div>
+</div>
+</body>
+<script>
+
+    const Who = {
+        template: `
+                    <h5 style="color:red;">
+                        {{ $route.name }} : {{ $route.params.status }}
+                    </h5>
+                  `
+    }
+
+    const router = new VueRouter({
+        routes: [
+            {
+                path: '/user/:status',
+                name: 'user',
+                component: Who
+            },
+            {
+                path: '/admin/:status',
+                name: 'admin',
+                component: Who
+            }
+        ]
+    })
+
+
+   /* router.push({ name: 'user', params: { status: '!!!' }})*/
+    router.push({ name: 'admin', params: { status: '설정 전!' }})
+
+
+    const app = new Vue({
+        router,
+        computed: {
+            param: function () {
+                return this.$route.params;
+            }
+        }
+    }).$mount('#app')
+</script>
+</html>

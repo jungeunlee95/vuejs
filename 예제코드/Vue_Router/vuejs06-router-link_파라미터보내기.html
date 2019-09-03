@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ router-link 방식 ]
+
+-->
+<body>
+<div id="app">
+    <router-link :to="{ name: 'user', params: { userId: 123 }}">User</router-link>
+    <router-link :to="{ name: 'admin', params: { userId: '@@@' }}">Admin</router-link>
+    <router-view></router-view>
+</div>
+</body>
+<script>
+    const Who = {
+        template: `
+                    <h5 style="color:red;">
+                        {{ $route.name }} : {{ $route.params.userId }}
+                    </h5>
+                  `
+    }
+
+    const router = new VueRouter({
+        routes: [
+            {
+                path: '/user/:userId',
+                name: 'user',
+                component: Who
+            },
+            {
+                path: '/admin/:userId',
+                name: 'admin',
+                component: Who
+            }
+        ]
+    })
+
+    const app = new Vue({
+        router
+    }).$mount('#app')
+</script>
+</html>
