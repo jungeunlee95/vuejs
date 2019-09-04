@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ 전역가드로 페이지 인증하기 ]
+-->
+<body>
+<div id="app">
+    <h1>Navigation Guard</h1>
+    <p>
+        <router-link to="/login">Login Page</router-link>
+        <router-link to="/home">Home Page</router-link>
+    </p>
+    <router-view></router-view>
+</div>
+</body>
+<script>
+    const Login = {template: '<p>Login Component</p>'};
+    const Home = {template: '<p>Home Component</p>'};
+    const LoginPage = {template: '<p>로그인 하삼!</p>'};
+
+    var router = new VueRouter({
+        routes: [
+            {
+                path: '/login',
+                component: Login,
+                meta : {authRequired: true},
+                beforeEnter: function(to, from, next) {
+                    if (to.matched.some(function (routeInfo) {
+                        // console.log("@@")
+                        // console.log(routeInfo.meta.authRequired)
+                        return routeInfo.meta.authRequired;
+                    })) {
+                        // 이동할 페이지에 인증 정보가 필요하면 경고 창을 띄우고 페이지 전환은 하지 않음
+                        alert('Login Please!');
+                        this.router.push('/loginPage')
+                    } else {
+                        console.log("routing success : '" + to.path + "'");
+                        next(); // 페이지 전환
+                    };
+                }
+            },
+            {path: '/home', component: Home},
+            {path: '/loginPage', name: 'loginPage', component: LoginPage},
+        ]
+    })
+
+    new Vue({
+        el: '#app',
+        router
+    });
+</script>
+</html>

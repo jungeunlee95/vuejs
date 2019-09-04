@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ 네비게이션 가드 ]
+-->
+<body>
+    <div id="app">
+        <h1>Navigation Guard</h1>
+        <p>
+            <router-link to="/login">Login Page</router-link>
+            <router-link to="/home">Home Page</router-link>
+        </p>
+        <router-view></router-view>
+    </div>
+</body>
+<script>
+
+    // 사용 예시
+    //var router = new VueRouter();
+    //router.beforeEach(function (to, from, next) {
+        // to : 이동할 url
+        // from : 현재 url
+        // next : to에서 지정한 url로 이동하기 위해 꼭 호출해야 하는 함수
+    //});
+
+    const Login = { template: '<p>Login Component</p>'};
+    const Home = { template: '<p>Home Component</p>'};
+
+    var router = new VueRouter({
+        routes: [
+            {path: '/login', component: Login},
+            {path: '/home', component: Home}
+        ]
+    });
+
+    router.beforeEach(function (to, from, next) {
+      // console.log(to);
+      // console.log(from);
+      // console.log(next);
+      // console.log('every single routing is pending');
+        next()
+    });
+
+    new Vue({
+        el: '#app',
+        router
+    });
+</script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<!--
+    [ 전역가드로 페이지 인증하기 ]
+-->
+<body>
+<div id="app">
+    <h1>Navigation Guard</h1>
+    <p>
+        <router-link to="/login">Login Page</router-link>
+        <router-link to="/home">Home Page</router-link>
+    </p>
+    <router-view></router-view>
+</div>
+</body>
+<script>
+    const Login = {template: '<p>Login Component</p>'};
+    const Home = {template: '<p>Home Component</p>'};
+
+    var router = new VueRouter({
+        routes: [
+            // meta 정보에 authRequired라는 Boolean 값 추가
+            {path: '/login', component: Login, meta: {authRequired: true}},
+            {path: '/home', component: Home}
+        ]
+    });
+
+    router.beforeEach(function (to, from, next) {
+        // to: 이동할 url에 해당하는 라우팅 객체
+
+        //  .some()은 자바스크립트 내장 API
+        //  지정된 배열의 모든 요소를 검사하여 조건을 만족시키면 true 값을 반환하고, 아니면 false 값을 반환합니다.
+        // console.log("##")
+        // console.log(to.meta.authRequired)
+        if (to.matched.some(function (routeInfo) {
+            // console.log("@@")
+            // console.log(routeInfo.meta.authRequired)
+            return routeInfo.meta.authRequired;
+        })) {
+            // 이동할 페이지에 인증 정보가 필요하면 경고 창을 띄우고 페이지 전환은 하지 않음
+            alert('Login Please!');
+        } else {
+            console.log("routing success : '" + to.path + "'");
+            next(); // 페이지 전환
+        }
+        ;
+    });
+
+    new Vue({
+        el: '#app',
+        router
+    });
+</script>
+</html>

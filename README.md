@@ -70,11 +70,9 @@ Commands:
 
 ### [Vue Router](https://router.vuejs.org/kr/)
 
-: 이어서 
-
-```
-https://router.vuejs.org/kr/guide/essentials/history-mode.html#%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95-%EC%98%88%EC%A0%9C
-```
+> #### [히스토리 모드 서버 설정 예제](https://router.vuejs.org/kr/guide/essentials/history-mode.html#서버-설정-예제)
+>
+> #### [API 레퍼런스](https://router.vuejs.org/kr/api/)
 
 ### [뷰 라우터 살펴보기](http://jeonghwan-kim.github.io/2018/04/07/vue-router.html)
 
@@ -97,3 +95,4 @@ https://router.vuejs.org/kr/guide/essentials/history-mode.html#%EC%84%9C%EB%B2%8
 ### [뷰 라우터 예제 깃헙](https://github.com/vuejs/vue-router)
 
 ### [doit vuejs 깃헙](https://github.com/jungeunlee95/doit-vuejs)
+
