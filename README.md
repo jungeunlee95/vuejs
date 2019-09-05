@@ -1,3 +1,13 @@
+## 현재상황
+
+개념정리/VueX 정리중 . . . 
+
+
+
+<br>
+
+---
+
 ## 구조
 
 - 모든 실습코드는 [예제코드](https://github.com/jungeunlee95/vuejs/tree/master/예제코드) 밑에 정리
