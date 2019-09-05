@@ -86,6 +86,12 @@ Commands:
 
 ### [뷰스타일가이드 공식문서](https://vuejs.org/v2/style-guide/)
 
+### [뷰 애니메이션 클래스 공식문서](https://vuejs.org/v2/guide/transitions#Transition-Classes)
+
+### [뷰 공식문서 - 예제 소스 ](https://vuejs.org/v2/examples/)
+
+> 마크다운 에디터, 깃헙 커밋, 그리드, 모달 . . .. .예제코드
+
 ---
 
 <b style="background-color:yellow">[뷰 예제 코드 보기]</b>
