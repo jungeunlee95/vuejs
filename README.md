@@ -119,3 +119,8 @@ Commands:
 ### [vue js mbootstrap](https://mdbootstrap.com/docs/vue/utilities/position/)
 ### [무료 icon](https://icons8.com/icons/set/check)
 ### [coreui-admin-template](https://github.com/coreui/coreui-free-vue-admin-template)
+
+---
+## VUE Environment Variables 설정 
+https://cli.vuejs.org/guide/mode-and-env.html#modes
+https://medium.com/js-dojo/how-to-use-environment-variables-in-vue-js-273eba0102b0
