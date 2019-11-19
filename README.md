@@ -129,5 +129,6 @@ https://cli.vuejs.org/guide/mode-and-env.html#modes
 https://medium.com/js-dojo/how-to-use-environment-variables-in-vue-js-273eba0102b0
 
 ---
+<b style="background-color:yellow">[js]</b>
 
 ## [js array filter function example](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
