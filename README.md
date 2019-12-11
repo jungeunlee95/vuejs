@@ -1,7 +1,3 @@
-## 현재상황
-
-개념정리/VueX 정리중 . . . 
-
 
 
 <br>
@@ -119,6 +115,7 @@ Commands:
 ### [vue js mbootstrap](https://mdbootstrap.com/docs/vue/utilities/position/)
 ### [무료 icon](https://icons8.com/icons/set/check)
 ### [coreui-admin-template](https://github.com/coreui/coreui-free-vue-admin-template)
+> [coreui 참고](https://coreui.io/v1/demo/AngularJS_Demo/#!/icons/simple-line-icons)
 
 ---
 ## VUE Environment Variables 설정 
