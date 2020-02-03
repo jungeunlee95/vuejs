@@ -116,6 +116,7 @@ Commands:
 ### [무료 icon](https://icons8.com/icons/set/check)
 ### [coreui-admin-template](https://github.com/coreui/coreui-free-vue-admin-template)
 > [coreui 참고](https://coreui.io/v1/demo/AngularJS_Demo/#!/icons/simple-line-icons)
+### [각종 컴포넌트 예제](https://www.jqwidgets.com/vue/?gclid=CjwKCAiAg9rxBRADEiwAxKDTunl8i1X9ajXTfOQnSCv3DmHHcY-8BFFb1ZrAbugPCqDoXSaiDLqwshoCRWEQAvD_BwE)
 
 ---
 ## VUE Environment Variables 설정 
