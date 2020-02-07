@@ -114,6 +114,7 @@ Commands:
 ### [vue js bootstrap 공식 문서](https://bootstrap-vue.js.org/docs/components/layout/#layout-and-grid-system)
 ### [vue js mbootstrap](https://mdbootstrap.com/docs/vue/utilities/position/)
 ### [무료 icon](https://icons8.com/icons/set/check)
+### [무료 icon2](https://www.cleanpng.com/png-database-server-computer-icons-clip-art-flat-file-7164401/)
 ### [coreui-admin-template](https://github.com/coreui/coreui-free-vue-admin-template)
 > [coreui 참고](https://coreui.io/v1/demo/AngularJS_Demo/#!/icons/simple-line-icons)
 ### [각종 컴포넌트 예제](https://www.jqwidgets.com/vue/?gclid=CjwKCAiAg9rxBRADEiwAxKDTunl8i1X9ajXTfOQnSCv3DmHHcY-8BFFb1ZrAbugPCqDoXSaiDLqwshoCRWEQAvD_BwE)
